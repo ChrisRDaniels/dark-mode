@@ -1,12 +1,20 @@
   
 import {useState} from "react"
-
-const useLocalStorage = (key, intialValue) => {
-    const [storedValue, setStoredValue] = useState(()=>{
-        const item = window.localStorage.getItem(key)
-        return item ? JSON.parse(item) : intialValue
-    })
-    
+export const useLocalStorage = (key, initialValue) => {
+    if (typeof key !== 'string') {
+      throw new Error(
+        'Invalid Params: useLocalStorage should receive a string for the first argument'
+      );
+    }
+  
+    const [storedValue, setStoredValue] = useState(() => {
+      if (localStorage.getItem(key)) {
+        return JSON.parse(window.localStorage.getItem(key));
+      } else {
+        window.localStorage.setItem(key, JSON.stringify(initialValue));
+        return initialValue;
+      }
+    });
 
     const setValue = value => {
         // Save state
