@@ -1,6 +1,6 @@
   
 import {useState} from "react"
-export const useLocalStorage = (key, initialValue) => {
+ const useLocalStorage = (key, initialValue) => {
     if (typeof key !== 'string') {
       throw new Error(
         'Invalid Params: useLocalStorage should receive a string for the first argument'
