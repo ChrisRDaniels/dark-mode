@@ -1,5 +1,6 @@
   
 import {useState} from "react"
+
  const useLocalStorage = (key, initialValue) => {
     if (typeof key !== 'string') {
       throw new Error(
