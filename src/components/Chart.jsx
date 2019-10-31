@@ -29,8 +29,8 @@ const Chart = ({ sparklineData }) => {
   return (
     <LineChart width={1600} height={500} data={formattedData}>
       <Line type="monotone" dataKey="value" stroke="#3495eb" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="date" interval={3} />
+      <CartesianGrid stroke="#ccc" strokeDasharray="10 10" />
+      <XAxis dataKey="date" interval={5} />
       <YAxis />
       <Tooltip />
     </LineChart>
